@@ -1,5 +1,7 @@
 const path = require('path');
-
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+// postcss-loader // 加css前缀做兼容 autoprefixer兼容表告诉postcss-loader哪个要加哪个不要加
+const stylelintEnable = false; // 不启用stylelint
 module.exports = {
   mode: 'development',
   entry: './src/index',
@@ -11,16 +13,31 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?/i,
-        use: {
+        exclude:/node_modules/,
+        use: [{
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-react'], // preset-env环境预设将es6编译成es5,预设
           },
-        },
+        }, {
+          loader:'eslint-loader',
+          options:{
+            
+          }
+        }],
       },
       {
         test: /\.css$/i,
-        use: ['css-loader', 'style-loader'],
+        use: [
+          'css-loader',
+          'style-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [require('autoprefixer')],
+            },
+          },
+        ],
       },
       {
         test: /\.(jpg|png|gif)$/i, // 图片文件
@@ -49,4 +66,19 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
+  plugins: [
+    ...(stylelintEnable
+      ? [
+          new StyleLintPlugin({
+            files: [
+              '**/*.css',
+              '**/*.less',
+              '**/*.scss',
+              '**/*.html',
+              '**/*.vue',
+            ],
+          }),
+        ]
+      : []),
+  ],
 };
