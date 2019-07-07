@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
   }
-  render() {
-    return <span>哈哈哈哈</span>;
-  }
+
+  render() {}
 }
-ReactDOM.render(<Index />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
