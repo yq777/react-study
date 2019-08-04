@@ -1,12 +1,15 @@
+/*eslint-disable*/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App.jsx';
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  render() {}
+  render() {
+    return <App />;
+  }
 }
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Index />, document.getElementById('app'));

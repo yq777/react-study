@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest-webpack"
+    "test": "jest-webpack",
+    "start": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
@@ -15,12 +16,14 @@
     "@babel/preset-react": "^7.0.0",
     "antd": "^3.19.1",
     "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-react": "^7.14.2",
     "file-loader": "^4.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
     "jest-webpack": "^0.5.1",
     "less": "^3.9.0",
@@ -34,7 +37,8 @@
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
