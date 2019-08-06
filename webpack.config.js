@@ -27,14 +27,11 @@ module.exports = {
           },
           {
             loader: 'eslint-loader',
-            options: {},
+            options: {fix: true },
           },
         ],
       },
-      {
-        parser: 'babel-eslint',
-        plugins: ['react'],
-      },
+     
       {
         test: /\.css$/i,
         use: [
