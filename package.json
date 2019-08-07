@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- 
   "scripts": {
     "test": "jest-webpack",
     "start": "webpack-dev-server",
-    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "keywords": [],
   "author": "",
@@ -19,6 +18,7 @@
     "antd": "^3.19.1",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
@@ -26,6 +26,7 @@
     "eslint-config-react-app": "^4.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.14.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "file-loader": "^4.0.0",
@@ -35,7 +36,6 @@
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
     "postcss-loader": "^3.0.0",
-    "pre-commit": "^1.2.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
@@ -56,20 +56,12 @@
     "not dead"
   ],
   "jest": {
-    "roots": [
-      "./tests/"
-    ]
-  },
-   "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,jsx}": [
-      "npm run lint",
-      "git add"
+    "verbose": true,
+    "testRegex": "(/__tests__/.*|(\\.|/)(test))\\.(jsx)$",
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
     ]
   }
 }

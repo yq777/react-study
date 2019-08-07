@@ -5,7 +5,8 @@ module.exports = {
    extends: [
    "eslint:recommended",
    "plugin:jsx-a11y/recommended",
-   "plugin:react/recommended"
+   "plugin:react/recommended",
+   "plugin:jest/recommended",
   ],
   // extends: 'airbnb',
   globals: {
@@ -18,7 +19,8 @@ module.exports = {
     "ecmaVersion": 6,
     "ecmaFeatures": {
       "impliedStrict": true,
-      "jsx": true
+      "jsx": true,
+      "jest":true
     }
   },
   "env": {
