@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -16,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/i,
+        test: /\.js[x]?/i,
         exclude: /node_modules/,
         use: [
           {
@@ -25,13 +25,14 @@ module.exports = {
               presets: ['@babel/preset-react'], // preset-env环境预设将es6编译成es5,预设
             },
           },
-          {
-            loader: 'eslint-loader',
-            options: {fix: true },
-          },
         ],
       },
-     
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'eslint-loader'
+      },
       {
         test: /\.css$/i,
         use: [

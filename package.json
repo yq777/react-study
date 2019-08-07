@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-//   "pre-commit": [
-//   "eslint"
-// ],
+ 
   "scripts": {
     "test": "jest-webpack",
     "start": "webpack-dev-server",
-    "lint": "eslint --ext .js --ext .jsx src"
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
   },
   "keywords": [],
   "author": "",
@@ -25,6 +23,7 @@
     "css-loader": "^3.0.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-react-app": "^4.0.1",
     "eslint-loader": "^2.2.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -59,6 +58,18 @@
   "jest": {
     "roots": [
       "./tests/"
+    ]
+  },
+   "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": [
+      "npm run lint",
+      "git add"
     ]
   }
 }
