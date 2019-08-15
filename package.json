@@ -6,7 +6,8 @@
   "scripts": {
     "commitmsg": "commitlint -E GIT_PARAMS",
     "test": "jest-webpack",
-    "start": "webpack-dev-server",
+    "start": "webpack --env.dev",
+    "build": "webpack --env.prod",
     "lint": "eslint \"src/**/*.{js,jsx}\""
   },
   "keywords": [],
